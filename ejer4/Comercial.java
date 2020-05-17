@@ -14,8 +14,8 @@ public class Comercial extends Persona{
   public String toString() {
     String cadena = "";
     cadena += "\nNombre: " + this.nombre;
-    cadena += "\nDescripción: " + this.correo;
-    cadena += "\nPrecio de compra: " + this.cargo;
+    cadena += "\nCorreo: " + this.correo;
+    cadena += "\nCargo: " + this.cargo;
     cadena += "\nVentas realizadas";
     cadena += "\n==============================";
     for (Articulo aux : articulos) {
