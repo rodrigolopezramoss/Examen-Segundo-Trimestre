@@ -7,7 +7,7 @@ public class Comercial extends Persona{
   private String cargo;
 
   public Comercial(String nom, String corr, String car) {
-	super(nom, corr);
+    super(nom, corr);
     this.cargo = car;
   }
   
