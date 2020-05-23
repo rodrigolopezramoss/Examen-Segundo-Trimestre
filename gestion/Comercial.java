@@ -22,8 +22,7 @@ public class Comercial extends Persona{
     return cadena;
   }
   
-  public void ventado() {
-
+  public void vendido() {
     String cadena = "";
     cadena += "\nNombre: " + this.nombre;
     cadena += "\nCorreo: " + this.correo;
@@ -31,29 +30,13 @@ public class Comercial extends Persona{
     cadena += "\nVentas realizadas";
     cadena += "\n==============================";
     for (Articulo aux : articulos) {
-      int i = articulos.indexOf(aux);
-      Cliente viejo = clientes.get(i);
-      
-      cadena += "\n" + aux + viejo;
-     }
+      cadena += "\n" + aux;
+    }
     System.out.println(cadena); ;
   }
   
-
-  public void vende(Articulo art) {
-	if(articulos.contains(art)) {
-	  int i = articulos.indexOf(art);
-	  
-	  Articulo viejo = articulos.get(i);
-	  Articulo aux= new Articulo(viejo.getNombre(),viejo.getCantidad()+ art.getCantidad());
-	  articulos.set(i,aux);
-	}else {
-	  articulos.add(art);
-	}  
-  }
   
-  public void vende(Articulo art, Cliente cli) {
-	clientes.add(cli);
+  public void vende(Articulo art) {
 	if(articulos.contains(art)) {
 	  int i = articulos.indexOf(art);
 	  
@@ -64,6 +47,9 @@ public class Comercial extends Persona{
 	  articulos.add(art);
 	}
   }
+  
+  
+  
 /**
  * @return the articulos
  */

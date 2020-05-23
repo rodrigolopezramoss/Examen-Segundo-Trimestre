@@ -55,7 +55,7 @@ public abstract class Persona {
       return false;
     }
     final Persona other = (Persona) obj;
-    if (!Objects.equals(this.nombre, other.nombre)) {
+    if (!Objects.equals(this.correo, other.correo)) {
       return false;
     }
     return true;

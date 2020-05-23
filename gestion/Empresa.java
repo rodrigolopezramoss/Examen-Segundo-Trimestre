@@ -3,12 +3,12 @@ package gestion;
 import java.util.Objects;
 
 public class Empresa implements Cliente{
-  private String CIF;
+  private String cif;
   private String nombre;
   private String telef;
   
   public Empresa(String cod, String nom, String tel) {
-	this.CIF = cod;
+	this.cif = cod;
     this.nombre = nom;
     this.telef = tel;
   }
@@ -16,7 +16,7 @@ public class Empresa implements Cliente{
   public String toString() {
     String cadena = "";
     cadena += "\nNombre: " + this.nombre;
-    cadena += "\nCIF: " + this.CIF;
+    cadena += "\ncif: " + this.cif;
     cadena += "\nTeléfono: " + this.telef;
     cadena += "\n==============================";
     return cadena;
@@ -27,15 +27,15 @@ public class Empresa implements Cliente{
   /**
  * @return the cIF
  */
-public String getCIF() {
-	return CIF;
+public String getCif() {
+	return cif;
 }
 
 /**
  * @param cIF the cIF to set
  */
-public void setCIF(String cIF) {
-	CIF = cIF;
+public void setCif(String cif) {
+	this.cif = cif;
 }
 
 /**
@@ -83,9 +83,15 @@ public int hashCode() {
       return false;
     }
     final Empresa other = (Empresa) obj;
-    if (!Objects.equals(this.nombre, other.nombre)) {
+    if (!Objects.equals(this.cif, other.cif)) {
       return false;
     }
     return true;
   }
+
+@Override
+public String getCorreo() {
+	// TODO Auto-generated method stub
+	return null;
+}
 }

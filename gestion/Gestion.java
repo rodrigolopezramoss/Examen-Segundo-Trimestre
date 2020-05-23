@@ -6,6 +6,7 @@ import java.util.Scanner;
 
 
 
+
 public class Gestion {
 	static ArrayList<Comercial> co = new ArrayList<Comercial>();
 	static ArrayList<Cliente> cli = new ArrayList<Cliente>();
@@ -17,7 +18,9 @@ public class Gestion {
 	Comercial juan = new Comercial("Juan", "juan@hotmail.com", "jefe de ventas");
 	Comercial luis = new Comercial("Luis", "luis@gmail.com", "coordinador de ventas");
 	
-	pepe.compra(juan, new Articulo("Paquete de folios", 5), pepe);
+	pepe.compra(luis, new Articulo("Paquete de folios", 50));
+	pablo.compra(luis, new Articulo("Mesa escritorio", 6));
+	pepe.compra(juan, new Articulo("Paquete de folios", 5));
 	
 	co.add(juan);
 	co.add(luis);
@@ -82,13 +85,13 @@ public class Gestion {
       	
       	switch (opcion2) {
     	case 1://Comerciales
-    	  System.out.println("Por favor, introduzca los datos");
-    	  System.out.print("Nombre:");
+    	  System.out.println("Por favor, introduzca los datos del comercial");
+    	  System.out.println("Nombre:");
       	  nombre = s.nextLine();
-      	  System.out.print("Correo:");
+      	  System.out.println("Correo:");
       	  correo = s.nextLine();
-      	  System.out.print("Cargo:");
-      	  cargo = s.nextLine();
+      	  System.out.println("Cargo:");
+    	  cargo = s.nextLine();
       	
       	  Comercial comaux = new Comercial(nombre,correo,cargo);
       	  if(co.contains(comaux)) {
@@ -105,13 +108,13 @@ public class Gestion {
           
           switch (opcion3) {
           case 1://Usuario
-        	System.out.println("Por favor, introduzca los datos");
-        	System.out.print("Nombre:");
+        	System.out.println("Por favor, introduzca los datos del usuario");
+        	System.out.println("Nombre:");
         	nombre = s.nextLine();
-        	System.out.print("Correo:");
+        	System.out.println("Correo:");
         	correo = s.nextLine();
-        	System.out.print("Teléfono:");
-        	telef = s.nextLine();
+        	System.out.println("Telefóno:");
+      	    telef = s.nextLine();
         	
         	Usuario usaux = new Usuario(nombre,correo,telef);
         	if(cli.contains(usaux)) {
@@ -123,17 +126,17 @@ public class Gestion {
         	
           	break;
           case 2://Empresa
-        	System.out.println("Por favor, introduzca los datos");
-        	System.out.print("CIF:");
+        	System.out.println("Por favor, introduzca los datos de la empresa");
+        	System.out.println("CIF:");
         	cif = s.nextLine();
-        	System.out.print("Nombre:");
+        	System.out.println("Nombre:");
         	nombre = s.nextLine();
-        	System.out.print("Teléfono:");
-        	telef = s.nextLine();
+        	System.out.println("Telefóno:");
+      	    telef = s.nextLine();
         	
         	Empresa emaux = new Empresa(cif,nombre,telef);
         	if(cli.contains(emaux)) {
-        	  System.out.println("Esta empresa ya está registrado");
+        	  System.out.println("Esta empresa ya está registrada");
         	}else {
         	  cli.add(emaux);
         	  System.out.println("Empresa añadida");
@@ -150,15 +153,10 @@ public class Gestion {
       	
       	switch (opcion2) {
     	case 1://Comerciales
-    	  System.out.println("Por favor, introduzca los datos");
-      	  System.out.print("Nombre:");
-          nombre = s.nextLine();
-          System.out.print("Correo:");
+    	  System.out.println("Por favor, introduzca el correo del comercial");
           correo = s.nextLine();
-          System.out.print("Cargo:");
-          cargo = s.nextLine();
         
-          Comercial comaux = new Comercial(nombre,correo,cargo);
+          Comercial comaux = new Comercial("",correo,"");
     	  
     	  if(co.contains(comaux)) {
     		co.remove(comaux);
@@ -175,15 +173,10 @@ public class Gestion {
           
           switch (opcion3) {
           case 1://Usuario
-        	System.out.println("Por favor, introduzca los datos");
-          	System.out.print("Nombre:");
-            nombre = s.nextLine();
-            System.out.print("Correo:");
+        	System.out.println("Por favor, introduzca el correo del usuario");
             correo = s.nextLine();
-            System.out.print("Teléfono:");
-            telef = s.nextLine();
             
-            Usuario usaux = new Usuario(nombre,correo,telef);
+            Usuario usaux = new Usuario("",correo,"");
         	  
         	if(cli.contains(usaux)) {
         	  cli.remove(usaux);
@@ -193,15 +186,10 @@ public class Gestion {
             } 
           	break;
           case 2://Empresa
-        	System.out.println("Por favor, introduzca los datos");
-            System.out.print("CIF:");
+        	System.out.println("Por favor, introduzca el CIF de la empresa");;
             cif = s.nextLine();
-            System.out.print("Nombre:");
-            nombre = s.nextLine();
-            System.out.print("Teléfono:");
-            telef = s.nextLine();
               
-            Empresa emaux = new Empresa(cif,nombre,telef);
+            Empresa emaux = new Empresa(cif,"","");
           	  
           	if(cli.contains(emaux)) {
           	  cli.remove(emaux);
@@ -221,15 +209,10 @@ public class Gestion {
         
         switch (opcion2) {
       	case 1://Comerciales
-      	  System.out.println("Introduzca los datos del comercial a modificar");
-      	  System.out.print("Nombre:");
-          nombre = s.nextLine();
-          System.out.print("Correo:");
+      	  System.out.println("Introduzca el correo del comercial a modificar");
           correo = s.nextLine();
-          System.out.print("Cargo:");
-          cargo = s.nextLine();
-        
-          Comercial comaux = new Comercial(nombre,correo,cargo);
+
+          Comercial comaux = new Comercial("",correo,"");
        	  if(co.contains(comaux)) {
        		System.out.println("Introduzca los datos que quiera modificar");
         	System.out.print("Nombre:");
@@ -240,7 +223,19 @@ public class Gestion {
             cargo2 = s.nextLine();
             
             int i = co.indexOf(comaux);
-      	  
+      	    
+            Comercial aux2 = co.get(i);
+            
+            if(nombre2.length() == 0) {
+              nombre2= aux2.getNombre();
+            }
+            if(correo2.length() == 0) {
+              correo2 = aux2.getCorreo();
+            }
+            if(cargo2.length() == 0) {
+              cargo2 = aux2.getCargo();
+            }
+            
       	    Comercial aux= new Comercial(nombre2,correo2,cargo2);
       	    co.set(i,aux);
       	    System.out.println("Modificación realizada con éxito");
@@ -255,15 +250,10 @@ public class Gestion {
             
           switch (opcion3) {
           case 1://Usuario
-        	System.out.println("Introduzca los datos del usuario a modificar");
-          	System.out.print("Nombre:");
-            nombre = s.nextLine();
-            System.out.print("Correo:");
+        	System.out.println("Introduzca el correo del usuario a modificar");
             correo = s.nextLine();
-            System.out.print("Teléfono:");
-            telef = s.nextLine();
-            
-            Usuario usaux = new Usuario(nombre,correo,telef);
+
+            Usuario usaux = new Usuario("",correo,"");
             if(cli.contains(usaux)) {
               System.out.println("Introduzca los datos que quiera modificar");
               System.out.print("Nombre:");
@@ -274,7 +264,20 @@ public class Gestion {
               telef2 = s.nextLine();
               
               int i = cli.indexOf(usaux);
-          	 
+          	  
+              Cliente aux2 = cli.get(i);
+              
+              if(nombre2.length() == 0) {
+                nombre2= aux2.getNombre();
+              }
+              if(correo2.length() == 0) {
+                correo2 = aux2.getCorreo();
+              }
+              if(telef2.length() == 0) {
+                telef2 = aux2.getTelef();
+              }
+              
+              
               Usuario aux= new Usuario(nombre2,correo2,telef2);
           	  cli.set(i,aux);
           	  System.out.println("Modificación realizada con éxito");
@@ -283,15 +286,10 @@ public class Gestion {
            	} 
       	    break;
           case 2://Empresa
-        	System.out.println("Introduzca los datos de la empresa a modificar");
-            System.out.print("CIF:");
+        	System.out.println("Introduzca el CIF de la empresa a modificar");
             cif = s.nextLine();
-            System.out.print("Nombre:");
-            nombre = s.nextLine();
-            System.out.print("Teléfono:");
-            telef = s.nextLine();
             
-            Empresa emaux = new Empresa(cif,nombre,telef);
+            Empresa emaux = new Empresa(cif,"","");
             if(cli.contains(emaux)) {
               System.out.println("Introduzca los datos que quiera modificar");
               System.out.print("CIF:");
@@ -302,7 +300,20 @@ public class Gestion {
               telef2 = s.nextLine();
                 
               int i = cli.indexOf(emaux);
-             
+              
+              Cliente aux2 = cli.get(i);
+              
+              if(cif2.length() == 0) {
+                cif2= aux2.getCif();
+              }
+              if(nombre2.length() == 0) {
+            	nombre2 = aux2.getCorreo();
+              }
+              if(telef2.length() == 0) {
+                telef2 = aux2.getTelef();
+              }
+              
+              
               Empresa aux= new Empresa(cif2,nombre2,telef2);
               cli.set(i,aux);
               System.out.println("Modificación realizada con éxito");
@@ -327,25 +338,15 @@ public class Gestion {
           
           switch (opcion3) {
          	case 1://Usuario
-            System.out.println("Introduzca los datos del usuario");
-            System.out.print("Nombre:");
-            nombre = s.nextLine();
-            System.out.print("Correo:");
+            System.out.println("Introduzca el correo del usuario");
             correo = s.nextLine();
-            System.out.print("Teléfono:");
-            telef = s.nextLine();
-            
-            Usuario usaux = new Usuario(nombre,correo,telef);
+
+            Usuario usaux = new Usuario("",correo,"");
             if (cli.contains(usaux)) {
-              System.out.println("Introduzca los datos del comercial");
-              System.out.print("Nombre:");
-              nombre = s.nextLine();
-              System.out.print("Correo:");
+              System.out.println("Introduzca el correo del comercial");
               correo = s.nextLine();
-              System.out.print("Cargo:");
-              cargo = s.nextLine();
             
-              Comercial comaux = new Comercial(nombre,correo,cargo);
+              Comercial comaux = new Comercial("",correo,"");
               if (co.contains(comaux)) {
             	System.out.println("¿Qué articulo desea vender?");
             	System.out.print("Nombre:");
@@ -354,7 +355,12 @@ public class Gestion {
                 cantidad = Integer.parseInt(s.nextLine()) ;
                 Articulo art = new Articulo(nombre,cantidad);
                 
-                usaux.compra(comaux, art, usaux);
+                
+                int i = co.indexOf(comaux);
+          	    
+                Comercial aux2 = co.get(i);
+                
+                usaux.compra(aux2, art);
               }else {
              	  System.out.println("Ese comercial no está registrado");
               }
@@ -363,34 +369,29 @@ public class Gestion {
            	}
             break;
           case 2://Empresa
-        	System.out.println("Introduzca los datos de la empresa");
-            System.out.print("CIF:");
+        	System.out.println("Introduzca el CIF de la empresa");
             cif = s.nextLine();
-            System.out.print("Nombre:");
-            nombre = s.nextLine();
-            System.out.print("Teléfono:");
-            telef = s.nextLine();
             
-            Empresa emaux = new Empresa(cif,nombre,telef);
+            Empresa emaux = new Empresa(cif,"","");
             if (cli.contains(emaux)) {
-              System.out.println("Introduzca los datos del comercial");
-              System.out.print("Nombre:");
-              nombre = s.nextLine();
-              System.out.print("Correo:");
+              System.out.println("Introduzca el correo del comercial");
               correo = s.nextLine();
-              System.out.print("Cargo:");
-              cargo = s.nextLine();
-            
-              Comercial comaux = new Comercial(nombre,correo,cargo);
+
+              Comercial comaux = new Comercial("",correo,"");
               if (co.contains(comaux)) {
             	System.out.println("¿Qué articulo desea vender?");
               	System.out.print("Nombre:");
                 nombre = s.nextLine();
                 System.out.print("Cantidad:");
                 cantidad = Integer.parseInt(s.nextLine()) ;
+                
                 Articulo art = new Articulo(nombre,cantidad);
-                  
-                emaux.compra(comaux, art, emaux);
+                
+                int i = co.indexOf(comaux);
+          	    
+                Comercial aux2 = co.get(i);
+                
+                emaux.compra(aux2, art);
               }else {
                 System.out.println("Ese comercial no está registrado");
               }
@@ -402,7 +403,7 @@ public class Gestion {
           break;
         case 2://--------------------------------------------------------------Ver ventas-----------------------------------------------------------------------
           for (Comercial aux : co) {
-    		aux.ventado();
+    		aux.vendido();
     	  }
           break;
         }

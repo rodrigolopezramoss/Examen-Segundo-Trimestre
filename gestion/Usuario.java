@@ -16,5 +16,25 @@ public class Usuario extends Persona implements Cliente{
     cadena += "\n==============================";
     return cadena;
   }
+
+/**
+ * @return the telef
+ */
+public String getTelef() {
+	return telef;
+}
+
+/**
+ * @param telef the telef to set
+ */
+public void setTelef(String telef) {
+	this.telef = telef;
+}
+
+@Override
+public String getCif() {
+	// TODO Auto-generated method stub
+	return null;
+}
 	  
 }
